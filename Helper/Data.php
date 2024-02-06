@@ -11,8 +11,8 @@ use Magento\Framework\Encryption\EncryptorInterface;
 class Data extends AbstractHelper
 {
     const QUINCENAS = 60;
-    const URL_API = 'https://crediteapi.realvirtual.com.mx/merchants/transactions';
-    const URL_BASE_POPUP = 'https://main.d3fbb1zyj1mrou.amplifyapp.com/widget?amount=';
+    const URL_API = 'https://ecommerce.creditea.com/app/api/merchants/transactions';
+    const URL_BASE_POPUP = 'https://ecommerce.creditea.com/mx/apply/widget?amount=';
 
 	protected $storeManager;
     protected $registry;
