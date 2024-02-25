@@ -12,8 +12,10 @@ use Magento\Framework\Webapi\Rest\Request;
 
 class WebApi
 {
-    private $responseFactory;
-    private $clientFactory;
+    protected $helper;
+    protected $helperLog;
+    protected $clientFactory;
+    protected $responseFactory;
 
     public function __construct(
         Data $helper,

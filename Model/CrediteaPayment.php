@@ -27,6 +27,9 @@ class CrediteaPayment extends \Magento\Payment\Model\Method\AbstractMethod
     protected $webApi;
     protected $helper;
     protected $helperLog;
+    protected $customerModel;
+    protected $customerSession;
+    protected $assetRepository;
 
     public function __construct(
         \Magento\Framework\Model\Context $context, 
