@@ -85,7 +85,7 @@ class View extends AbstractProduct
     }
 
     function getBrandUrl(){
-        return $this->getViewFileUrl('Creditea_Magento2::images/crediteaIcon.png');
+        return $this->getViewFileUrl('Creditea_Magento2::images/Creditea_logo_dark_134x24.png');
     }
 
 }

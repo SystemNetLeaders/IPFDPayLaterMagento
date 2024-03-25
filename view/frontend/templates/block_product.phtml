@@ -1,14 +1,16 @@
 <?php if($block->canShow()):?>
 
     <div class="creditea-calc-msi">
-        <img loading="lazy" src="<?php echo $block->getBrandUrl()?>" alt="creditea"> Desde <?= $block->getPesosQuincenalesFormatted(); ?> pesos quincenales <a href="<?php echo $block->getUrlCreditea(); ?>" data-vbtype="iframe" data-customclass="popup-creditea" class="creditea-click">Ver Más</a>
+        <img loading="lazy" src="<?php echo $block->getBrandUrl()?>" alt="creditea"> <span>Desde <?= $block->getPesosQuincenalesFormatted(); ?> pesos quincenales <a href="<?php echo $block->getUrlCreditea(); ?>" data-vbtype="iframe" data-customclass="popup-creditea" class="creditea-click">Ver Más</a></span>
     </div>
 
     <script>require(['jquery', 'creditea-venobox'], function($){$('a.creditea-click').venobox();});</script>
 
     <style>
         .venoframe.vbox-figlio {height: 90vh;}
-        .creditea-calc-msi {line-height:30px; padding: 5px 0px;}
-        .creditea-calc-msi > img {display:inline-block; width: 20px; vertical-align: middle;}
+        .creditea-calc-msi > img {width: 134px;}
+        .creditea-calc-msi > span {padding-top: 5px;}
+        .creditea-calc-msi {line-height:30px; padding: 3px 0px;}
+        .creditea-calc-msi > * {display:inline-block; vertical-align: middle;}
     </style>
 <?php endif; ?>

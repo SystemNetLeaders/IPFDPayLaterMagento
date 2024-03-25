@@ -3,8 +3,8 @@
         <input type="radio" name="payment[method]" class="radio"
             data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
         <label data-bind="attr: {'for': getCode()}" class="label" style="height:30px;">
-        <img data-bind="attr: {src: require.toUrl('Creditea_Magento2/images/crediteaIcon.png')}" style="height: 12px; line-height: 18px;" />
-        <span data-bind="text: getTitle()"></span></label>
+            <span data-bind="text: getTitle()"></span> <img data-bind="attr: {src: require.toUrl('Creditea_Magento2/images/Creditea_logo_dark_134x24.png')}" width="134px" height="24px" />
+        </label>
     </div>
 
     <div class="payment-method-content">
