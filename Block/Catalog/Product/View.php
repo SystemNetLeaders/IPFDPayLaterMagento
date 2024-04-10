@@ -24,12 +24,12 @@ class View extends AbstractProduct
     }
 
     function canShow(){
-        /* if payment is disable */
+        /* If payment is disable */
         if(!$this->helper->isEnable()){
             return false;
         }
 
-        /* if lost apikey */
+        /* If lost apikey */
         if($this->helper->getApiKey() == ''){
             $this->helperLog->log(__('API key is required'));
             return false;
@@ -61,8 +61,12 @@ class View extends AbstractProduct
 
     function getPesosQuincenalesFormatted(){
         $quincenas = Data::QUINCENAS;
+        $minCalculatePrice = Data::MIN_CALCULATE_PRICE;
         $price = $this->getCurrentProductPrice();
         $pesosQuincenales = $this->getEstimatedInstallment($price, $quincenas);
+            if($minCalculatePrice > $pesosQuincenales){
+                $pesosQuincenales = $minCalculatePrice; 
+            }
         return "$".number_format($pesosQuincenales, 2, ".", ",");
     }
 
