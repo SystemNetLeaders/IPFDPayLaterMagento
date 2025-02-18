@@ -6,7 +6,7 @@
                 <debug>0</debug>
                 <active>0</active>
                 <model>Creditea\Magento2\Model\CrediteaPayment</model>
-                <title>Creditea - Paga en cómodas quincenas </title>
+                <title>Creditea: pago en cómodas quincenas </title>
                 <payment_action>order</payment_action> 
                 <order_status>pending_payment</order_status>
                 <currency>MXN</currency>
