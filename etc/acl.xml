@@ -3,7 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Creaditea_Magento2::webapi" title="Creditea Web API" sortOrder="10"/>
+                <resource id="Creditea_Magento2::webapi" title="Creditea Web API" sortOrder="10"/>
             </resource>
         </resources>
     </acl>
