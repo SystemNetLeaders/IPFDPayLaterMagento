@@ -6,7 +6,7 @@
                 <debug>0</debug>
                 <active>0</active>
                 <model>Creditea\Magento2\Model\CrediteaPayment</model>
-                <title>Creditea Pay - divide tus compras en quincenas, o también en 2 o 4 plazos sin intereses. ¡Sin pago inicial! </title>
+                <title>Creditea Pay - divide tus compras <b>en quincenas</b>, o también en <b>2 o 4 plazos sin intereses</b>. ¡Sin pago inicial! </title>
                 <payment_action>order</payment_action> 
                 <order_status>pending_payment</order_status>
                 <currency>MXN</currency>
