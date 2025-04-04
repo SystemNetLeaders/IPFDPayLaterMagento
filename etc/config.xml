@@ -17,7 +17,7 @@
                 <can_use_checkout>1</can_use_checkout>
                 <can_use_internal>0</can_use_internal>
                 <sort_order>1</sort_order>
-                <min_order_total>1000</min_order_total>
+                <min_order_total>500</min_order_total>
                 <max_order_total>70000</max_order_total>
             </creditea_magento2>
         </payment>
