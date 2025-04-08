@@ -3,7 +3,7 @@
         <input type="radio" name="payment[method]" class="radio"
             data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
         <label data-bind="attr: {'for': getCode()}" class="label" style="height:30px;">
-            <span data-bind="text: getTitle()"></span> <img data-bind="attr: {src: require.toUrl('Creditea_Magento2/images/Creditea-Logo.svg')}" width="134px" height="24px" />
+            <span data-bind="html: getTitle()"></span> <img data-bind="attr: {src: require.toUrl('Creditea_Magento2/images/Creditea-Logo.svg')}" width="134px" height="24px" />
         </label>
     </div>
 
@@ -23,8 +23,8 @@
         </div>
 
         <div id="creditea-details" style="padding: 5px 10px 10px 18px;">
-            <!-- ko i18n: 'Creditea-Promo-Text' --><!-- /ko -->
-        </div>
+            <div data-bind="html: 'Creditea Pay is a <b>line of credit</b> that lets you shop and <b>split</b> your purchases into convenient <b>bi-weekly payments, with no upfront payment</b>. <b>No interest</b> if you pay the <b>full amount</b> of the purchase in <b>2 or 4 bi-weekly installments</b>, depending on the store. Check out the <b>Creditea Pay discounts</b>, <b>available in-store</b>.'"></div>
+        </div>        
         
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
