@@ -66,4 +66,29 @@ class Data extends AbstractHelper
         $getToken = $this->getConfigValue('payment/creditea_magento2/api_key_production');
         return $this->enc->decrypt($getToken);
     }
+
+    public function isEnableImageAboveTitle()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_above_title') ?? 0;
+    }
+
+    public function isEnableImageBelowPrice()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_below_price') ?? 0;
+    }
+
+    public function isEnableImageAboveAddToCart()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_above_addtocart') ?? 0;
+    }
+
+    public function isEnableImageBelowDescription()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_below_description') ?? 0;
+    }
+
+    public function isEnableBadgeOverlay()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_badge_overlay') ?? 0;
+    }
 }
