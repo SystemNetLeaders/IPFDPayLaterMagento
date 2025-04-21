@@ -1,14 +1,38 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <!-- for simple products -->
-        <referenceContainer name="product.info.form.content">
-            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.simple" template="Creditea_Magento2::block_product.phtml" before="product.info.addtocart"/>
-        </referenceContainer>
-        
-        <!-- for config products -->
-        <referenceBlock name="product.info.options.wrapper.bottom">
-            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.config" template="Creditea_Magento2::block_product.phtml" before="product.info.addtocart"/>
+
+        <!-- Above title -->
+        <referenceBlock name="product.info.main">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.above.title"  template="Creditea_Magento2::above_title.phtml" before="page.main.title"/>
         </referenceBlock>
+
+        <!-- Below price -->
+        <referenceBlock name="product.info.main">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.below.price" template="Creditea_Magento2::below_price.phtml" after="product.info.price"/>
+        </referenceBlock>
+
+
+        <!-- In form content -->
+        <referenceContainer name="product.info.form.content">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.simple" template="Creditea_Magento2::block_product.phtml" before="product.info.addtocart"/> <!-- for simple products -->
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.above.addtocart" template="Creditea_Magento2::above_addtocart.phtml" after="creditea.product.simple"/> <!-- above "add to cart" -->
+        </referenceContainer>
+        <referenceBlock name="product.info.options.wrapper.bottom">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.config" template="Creditea_Magento2::block_product.phtml" before="product.info.addtocart"/> <!-- for config products -->
+        </referenceBlock>
+
+        <!-- Below the short description -->
+        <referenceBlock name="product.info.main">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.below.description" template="Creditea_Magento2::below_description.phtml" after="product.info.overview" />
+        </referenceBlock>
+
+        <!-- Badge at product image -->
+        <referenceContainer name="product.info.media">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.product.badge"  template="Creditea_Magento2::product_badge.phtml"  after="product.image"/>
+        </referenceContainer>
+
+        <!-- move to target places -->
+        <move element="creditea.product.above.title" destination="product.info.main" before="page.main.title" />
     </body>
 </page>

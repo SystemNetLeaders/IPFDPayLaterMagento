@@ -92,15 +92,15 @@ class View extends AbstractProduct
         return $this->getViewFileUrl('Creditea_Magento2::images/Creditea-Logo.svg');
     }
 
-    public function showImageAboveTitle()
+    public function showImageAboveTitle() // Works
     {
         return $this->helper->isEnableImageAboveTitle();
     }
-    public function showImageBelowPrice()
+    public function showImageBelowPrice() // Works
     {
         return $this->helper->isEnableImageBelowPrice();
     }
-    public function showImageAboveAddToCart()
+    public function showImageAboveAddToCart() // Works
     {
         return $this->helper->isEnableImageAboveAddToCart();
     }
