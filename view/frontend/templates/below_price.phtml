@@ -1,6 +1,9 @@
 <?php if($block->canShow()):?>
     <?php if ($block->showImageBelowPrice()): ?>
-        <img src="<?= $block->getViewFileUrl('Creditea_Magento2::images/promo/CrediteaPay_Promo2.png') ?>" alt="Promo Image Below Price" />
+        <a href="<?php echo $block->getUrlCreditea(); ?>" data-vbtype="iframe" data-customclass="popup-creditea" class="creditea-click">
+            <img src="<?= $block->getViewFileUrl('Creditea_Magento2::images/promo/CrediteaPay_Promo2.png') ?>" alt="Promo Image Below Price" />
+        </a>
+        <script>require(['jquery', 'creditea-venobox'], function($){$('a.creditea-click').venobox();});</script>
     <?php endif; ?>
 <?php endif; ?>
 
