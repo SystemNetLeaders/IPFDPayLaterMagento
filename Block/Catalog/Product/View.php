@@ -92,4 +92,14 @@ class View extends AbstractProduct
         return $this->getViewFileUrl('Creditea_Magento2::images/Creditea-Logo.svg');
     }
 
+    function isCurrentProductPriceInRange(){
+        $price = $this->getCurrentProductPrice();
+        $minPrice = $this->helper->getMinPrice();
+        $maxPrice = $this->helper->getMaxPrice();
+        if($price >= $minPrice && $price <= $maxPrice){
+            return true;
+        }
+        return false;
+    }
+
 }
