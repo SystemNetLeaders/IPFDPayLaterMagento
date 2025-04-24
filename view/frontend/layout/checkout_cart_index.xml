@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Insert our block directly after the checkout.cart.methods block -->
+        <referenceBlock name="checkout.cart.methods">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.cart.under.summary"  template="Creditea_Magento2::cart_post_summary.phtml" after="-"/>
+        </referenceBlock>
+    </body>
+</page>

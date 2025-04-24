@@ -23,7 +23,7 @@ class View extends AbstractProduct
         $this->helper = $helper;
     }
 
-    function canShow(){
+    function canShow($skipProductCheck = false){
         /* If payment is disable */
         if(!$this->helper->isEnable()){
             return false;
@@ -36,8 +36,10 @@ class View extends AbstractProduct
         }
         
         /* Init out catalog_product_view */
-        if(!$this->helper->getCurrentProduct()){
-            return false;
+        if($skipProductCheck == false){
+            if(!$this->helper->getCurrentProduct()){
+                return false;
+            }
         }
 
         return true;
