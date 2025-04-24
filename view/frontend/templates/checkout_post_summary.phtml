@@ -1,6 +1,6 @@
 <?php if($block->canShow(true) && true == false):?>
     <a href="#" data-customclass="popup-creditea" class="creditea-promo-modal creditea-checkout-promo">
-        <img src="<?= $block->getViewFileUrl('Creditea_Magento2::images/promo/CrediteaPay_Promo3.png') ?>" alt="Promo Image Under Checkout Summary" />
+        <img src="<?= $block->getBannerUrl() ?>" alt="Promo Image Under Checkout Summary" />
     </a>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

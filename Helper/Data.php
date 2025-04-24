@@ -66,6 +66,10 @@ class Data extends AbstractHelper
         $getToken = $this->getConfigValue('payment/creditea_magento2/api_key_production');
         return $this->enc->decrypt($getToken);
     }
+    public function generateBannerUrl($params = [])
+    {
+        return 'https://placehold.co/570x80/EEE/31343C?t=' . time();
+    }
 
     public function isEnableImageAboveTitle()
     {
