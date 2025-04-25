@@ -1,8 +1,51 @@
 <?php if($block->canShow()):?>
     <?php if ($block->showImageAboveTitle()): ?>    
-        <a href="<?php echo $block->getUrlCreditea(); ?>" data-vbtype="iframe" data-customclass="popup-creditea" class="creditea-click">
+        <a href="javascript:void(0);" class="creditea-modal-trigger creditea-promo-click">
             <img src="<?= $block->getBannerUrl() ?>" alt="Promo Image Above Title" />
         </a>
-        <script>require(['jquery', 'creditea-venobox'], function($){$('a.creditea-click').venobox();});</script>
+        <script>require(['jquery', 'creditea-venobox-promo'], function($){$('a.creditea-promo-click').venobox();});</script>
     <?php endif; ?>
 <?php endif; ?>
+
+ <!-- Modal Structure -->
+ <div id="creditea-modal" class="creditea-modal" style="display:none;">
+    <div class="creditea-modal-content">
+        <span class="creditea-modal-close">&times;</span>
+        <img src="<?= $block->getBannerUrl() ?>" alt="Promo Image" />
+    </div>
+</div>
+
+<!-- Modal Styles & Script -->
+<style>
+    .creditea-modal {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.7);
+    }
+    .creditea-modal-content {
+        position: relative;
+        margin: 10% auto;
+        padding: 20px;
+        background: #fff;
+        max-width: 600px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    .creditea-modal-content img {
+        max-width: 100%;
+        height: auto;
+    }
+    .creditea-modal-close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>

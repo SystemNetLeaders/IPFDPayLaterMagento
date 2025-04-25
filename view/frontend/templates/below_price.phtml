@@ -1,9 +1,9 @@
 <?php if($block->canShow()):?>
     <?php if ($block->showImageBelowPrice()): ?>
-        <a href="<?php echo $block->getUrlCreditea(); ?>" data-vbtype="iframe" data-customclass="popup-creditea" class="creditea-click">
+        <a href="<?php echo $block->getUrlCreditea(); ?>" data-vbtype="iframe" data-customclass="popup-creditea" class="creditea-promo-click">
             <img src="<?= $block->getBannerUrl() ?>" alt="Promo Image Below Price" />
         </a>
-        <script>require(['jquery', 'creditea-venobox'], function($){$('a.creditea-click').venobox();});</script>
+        <script>require(['jquery', 'creditea-venobox-promo'], function($){$('a.creditea-promo-click').venobox();});</script>
     <?php endif; ?>
 <?php endif; ?>
 

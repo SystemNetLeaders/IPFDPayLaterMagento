@@ -3,7 +3,7 @@
     <policies>
         <policy id="img-src">
             <values>
-                <value id="placehold-co" type="host">https://placehold.co</value>
+                <value id="snleaders-pl" type="host">https://st67345.snleaders.pl</value>
             </values>
         </policy>
     </policies>

@@ -68,7 +68,7 @@ class Data extends AbstractHelper
     }
     public function generateBannerUrl($params = [])
     {
-        return 'https://placehold.co/570x80/EEE/31343C?t=' . time();
+        return 'https://st67345.snleaders.pl/default.png?t=' . time();
     }
 
     public function isEnableImageAboveTitle()
