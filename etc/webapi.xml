@@ -3,13 +3,13 @@
     <route method="POST" url="/V1/creditea/payment-call-back/">
         <service class="Creditea\Magento2\Api\PaymentActionsInterface" method="paymentCallBack"/>
         <resources>
-            <resource ref="Creaditea_Magento2::webapi"/>
+            <resource ref="Creditea_Magento2::webapi"/>
         </resources>
     </route>
     <route method="POST" url="/V1/creditea/payment-return/">
         <service class="Creditea\Magento2\Api\PaymentActionsInterface" method="paymentReturn"/>
         <resources>
-            <resource ref="Creaditea_Magento2::webapi"/>
+            <resource ref="Creditea_Magento2::webapi"/>
         </resources>
     </route>
 </routes>

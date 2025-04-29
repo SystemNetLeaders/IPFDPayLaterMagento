@@ -3,7 +3,7 @@
         <input type="radio" name="payment[method]" class="radio"
             data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
         <label data-bind="attr: {'for': getCode()}" class="label" style="height:30px;">
-            <span data-bind="text: getTitle()"></span> <img data-bind="attr: {src: require.toUrl('Creditea_Magento2/images/Creditea_logo_dark_134x24.png')}" width="134px" height="24px" />
+            <span data-bind="html: getTitle()"></span> <img data-bind="attr: {src: require.toUrl('Creditea_Magento2/images/creditea_pay_default.png')}" width="134px" height="24px" />
         </label>
     </div>
 
@@ -23,9 +23,9 @@
         </div>
 
         <div id="creditea-details" style="padding: 5px 10px 10px 18px;">
-            <!-- ko i18n: 'When you use Creditea, you will obtain a line of credit to buy and divide your purchases in up to 60 fortnights, with no down payment!' --><!-- /ko -->
-        </div>
-        
+            <div data-bind="html: $t('Creditea Pay Footer')"></div>
+        </div>          
+
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
                 <!-- ko template: getTemplate() --><!-- /ko -->

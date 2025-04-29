@@ -89,7 +89,17 @@ class View extends AbstractProduct
     }
 
     function getBrandUrl(){
-        return $this->getViewFileUrl('Creditea_Magento2::images/Creditea_logo_dark_134x24.png');
+        return $this->getViewFileUrl('Creditea_Magento2::images/creditea_pay_default.png');
+    }
+
+    function isCurrentProductPriceInRange(){
+        $price = $this->getCurrentProductPrice();
+        $minPrice = $this->helper->getMinPrice();
+        $maxPrice = $this->helper->getMaxPrice();
+        if($price >= $minPrice && $price <= $maxPrice){
+            return true;
+        }
+        return false;
     }
 
 }

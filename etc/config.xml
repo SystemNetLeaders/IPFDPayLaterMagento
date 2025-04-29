@@ -6,7 +6,7 @@
                 <debug>0</debug>
                 <active>0</active>
                 <model>Creditea\Magento2\Model\CrediteaPayment</model>
-                <title>Creditea: pago en cómodas quincenas </title>
+                <title><![CDATA[Creditea Pay - divide tus compras <strong>en quincenas</strong>, o también en <strong>2 o 4 plazos sin intereses</strong>. <strong>¡Sin pago inicial!</strong>]]></title>
                 <payment_action>order</payment_action> 
                 <order_status>pending_payment</order_status>
                 <currency>MXN</currency>
@@ -17,7 +17,7 @@
                 <can_use_checkout>1</can_use_checkout>
                 <can_use_internal>0</can_use_internal>
                 <sort_order>1</sort_order>
-                <min_order_total>1000</min_order_total>
+                <min_order_total>500</min_order_total>
                 <max_order_total>70000</max_order_total>
             </creditea_magento2>
         </payment>

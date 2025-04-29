@@ -66,4 +66,14 @@ class Data extends AbstractHelper
         $getToken = $this->getConfigValue('payment/creditea_magento2/api_key_production');
         return $this->enc->decrypt($getToken);
     }
+
+    public function getMinPrice()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/min_order_total');
+    }
+
+    public function getMaxPrice()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/max_order_total');
+    }
 }
