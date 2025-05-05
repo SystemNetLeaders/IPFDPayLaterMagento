@@ -1,15 +1,6 @@
 <?php if($block->canShow(true) && true == false):?>
-    <a href="#" data-customclass="popup-creditea" class="creditea-promo-modal creditea-checkout-promo">
-        <img src="<?= $block->getBannerUrl() ?>" alt="Promo Image Under Checkout Summary" />
+    <a href="javascript:void(0);" data-image="<?=  $block->getBannerUrl('promo_modal_content') ?>" class="creditea-modal-trigger creditea-promo-click">
+        <img src="<?= $block->getBannerUrl('checkout_below_summary') ?>" alt="Promo Image Under Checkout Summary" />
     </a>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var crediteaPromo = document.querySelector('.creditea-checkout-promo');
-            var sidebar = document.querySelector('aside.opc-sidebar');
-
-            if (crediteaPromo && sidebar) {
-                sidebar.appendChild(crediteaPromo);
-            }
-        });
-    </script>
+    <script>require(['jquery', 'creditea-venobox-promo']);</script>
 <?php endif; ?>

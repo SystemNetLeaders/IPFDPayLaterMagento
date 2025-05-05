@@ -1,13 +1,13 @@
 var config = {
     paths: {
         'creditea-venobox': 'Creditea_Magento2/js/venobox',
-        'creditea-promo-venobox': 'Creditea_Magento2/js/promo-venobox',
+        'creditea-venobox-promo': 'Creditea_Magento2/js/creditea-venobox-promo',
     },
     shim: {
         'creditea-venobox': {
             'deps': ['jquery']
         },
-        'creditea-promo-venobox': {
+        'creditea-venobox-promo': {
             'deps': ['jquery']
         }
     }

@@ -26,7 +26,8 @@ class GetUrl extends Action
         $result = $this->resultJsonFactory->create();
         
         try {
-            $bannerUrl = $this->helper->generateBannerUrl();
+            $position = $this->getRequest()->getParam('position', 'checkout_below_summary');
+            $bannerUrl = $this->helper->generateBannerUrl($position);
             return $result->setData(['url' => $bannerUrl]);
         } catch (\Exception $e) {
             return $result->setData(['error' => $e->getMessage()]);

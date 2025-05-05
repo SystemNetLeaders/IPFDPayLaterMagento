@@ -14,6 +14,7 @@ class Data extends AbstractHelper
     const MIN_CALCULATE_PRICE = 200;
     const URL_API = 'https://aut01.ecommerce.creditea.com/app/api/merchants/transactions';
     const URL_BASE_POPUP = 'https://aut01.ecommerce.creditea.com/mx/apply/widget?amount=';
+    const URL_BANNER_HOST = 'https://st67345.snleaders.pl';
 
 	protected $storeManager;
     protected $registry;
@@ -66,9 +67,23 @@ class Data extends AbstractHelper
         $getToken = $this->getConfigValue('payment/creditea_magento2/api_key_production');
         return $this->enc->decrypt($getToken);
     }
-    public function generateBannerUrl($params = [])
+    public function generateBannerUrl($placement = null)
     {
-        return 'https://st67345.snleaders.pl/default.png?t=' . time();
+        $placement = !is_null($placement) ? strtolower($placement) : null;
+        $placementMap = [
+            'product_above_title' => 'banner_above_title.png',
+            'product_below_price' => 'banner_below_price.png',
+            'product_above_add_to_cart' => 'banner_above_addtocart.png',
+            'product_below_description' => 'banner_below_description.png',
+            'product_badge' => 'product_badge.png',
+            'cart_below_summary' => 'banner_cart_below_summary.png',
+            'checkout_below_summary' => 'checkout_below_summary.png',
+            'promo_modal_content' => 'promo_modal_content.png',
+        ];
+        if(!is_null($placement) && isset($placementMap[$placement])){
+            return Data::URL_BANNER_HOST . "/" . $placementMap[$placement] . '?t=' . time();
+        }
+        return Data::URL_BANNER_HOST . '/default.png?t=' . time();
     }
 
     public function isEnableImageAboveTitle()

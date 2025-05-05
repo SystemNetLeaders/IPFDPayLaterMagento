@@ -1,8 +1,8 @@
 <?php if($block->canShow()):?>
     <?php if ($block->showImageAboveAddToCart()): ?>
-        <a href="<?php echo $block->getUrlCreditea(); ?>" data-vbtype="iframe" data-customclass="popup-creditea" class="creditea-promo-click">
-            <img src="<?= $block->getBannerUrl() ?>" alt="Promo Image Above Add To Cart" />
+        <a href="javascript:void(0);" data-image="<?=  $block->getBannerUrl('promo_modal_content') ?>" class="creditea-modal-trigger creditea-promo-click">
+            <img src="<?= $block->getBannerUrl('product_above_add_to_cart') ?>" alt="Promo Image Above Add To Cart" />
         </a>
-        <script>require(['jquery', 'creditea-venobox-promo'], function($){$('a.creditea-promo-click').venobox();});</script>
+        <script>require(['jquery', 'creditea-venobox-promo']);</script>
     <?php endif; ?>
 <?php endif; ?>
