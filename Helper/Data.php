@@ -110,4 +110,15 @@ class Data extends AbstractHelper
     {
         return $this->getConfigValue('payment/creditea_magento2/enable_badge_overlay') ?? 0;
     }
+
+    public function isEnableBannerAtCheckout()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_banner_at_checkout') ?? 0;
+    }
+    
+    public function isEnableBannerAtCart()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_banner_at_cart') ?? 0;
+    }
+
 }

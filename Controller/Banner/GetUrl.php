@@ -26,9 +26,20 @@ class GetUrl extends Action
         $result = $this->resultJsonFactory->create();
         
         try {
-            $position = $this->getRequest()->getParam('position', 'checkout_below_summary');
+            $position = $this->getRequest()->getParam('position', 'default');
+            $isEnabled = false;
+            switch ($position) {
+                case 'checkout_below_summary':
+                    $position = 'checkout_below_summary';
+                    $isEnabled = $this->helper->isEnableBannerAtCheckout();
+                    break;
+                default:
+                    $position = 'default';
+                    $isEnabled = true;
+                    break;
+            }
             $bannerUrl = $this->helper->generateBannerUrl($position);
-            return $result->setData(['url' => $bannerUrl]);
+            return $result->setData(['url' => $bannerUrl, 'isEnabled' => $isEnabled]);
         } catch (\Exception $e) {
             return $result->setData(['error' => $e->getMessage()]);
         }

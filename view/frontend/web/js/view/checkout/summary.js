@@ -1,49 +1,61 @@
 define([
     'uiComponent',
     'mage/url',
-    'Magento_Checkout/js/model/quote'
-], function (Component, urlBuilder, quote) {
+    'Magento_Checkout/js/model/quote',
+    'ko'
+], function (Component, urlBuilder, quote, ko) {
     'use strict';
-    
+
     return Component.extend({
         defaults: {
             template: 'Creditea_Magento2/checkout/summary',
-            bannerUrl: ''
+            bannerUrl: ko.observable(''),
+            isBannerEnabled: ko.observable('')
         },
-        
+
         initialize: function () {
             this._super();
-            this.initBannerUrl();
+            this.loadBannerData();
             return this;
         },
-        
-        initBannerUrl: function () {
+
+        loadBannerData: function () {
             var self = this;
-            var timestamp = new Date().getTime();
             var position = 'checkout_below_summary';
-            this.bannerUrl = urlBuilder.build('creditea/banner/geturl') + '?position=' + position + '&t=' + timestamp;
-            fetch(this.bannerUrl, {
+            var requestUrl = urlBuilder.build('creditea/banner/geturl?position=' + position);
+
+            fetch(requestUrl, {
                 method: 'GET',
                 cache: 'no-store'
             })
-            .then(function(response) {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.text();
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
             })
-            .then(function(data) {
-                //console.log('Data:', data);
-                var crediteaJson = JSON.parse(data);
-                self.bannerUrl = crediteaJson.url;
-                document.querySelector('.creditea-banner-image').src = crediteaJson.url;
+            .then(function (data) {
+                if (data.isEnabled == "1") {
+                    self.isBannerEnabled(data.isEnabled);
+                    self.bannerUrl(data.url);
+                }
             })
-            .catch(function(error) {
-                console.error('Fetch error:', error);
+            .catch(function (error) {
+                console.error('Creditea banner fetch error:', error);
             });
-            
         },
-        
+
         getBannerUrl: function () {
-            return this.bannerUrl;
+            return this.bannerUrl();
+        },
+
+        isEnabled: function () {
+            if(this.isBannerEnabled() == "1"){
+                return "display:block;";
+            }else{
+                console.log('Banner is disabled');
+                return "display:none;";
+            }
         }
     });
 });

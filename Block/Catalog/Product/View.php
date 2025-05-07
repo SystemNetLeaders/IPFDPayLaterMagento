@@ -118,5 +118,13 @@ class View extends AbstractProduct
     {
         return $this->helper->isEnableBadgeOverlay();
     }
+    public function showBannerCheckout()
+    {
+        return $this->helper->isEnableBannerAtCheckout();
+    }
+    public function showBannerCart()
+    {
+        return $this->helper->isEnableBannerAtCart();
+    }
 
 }

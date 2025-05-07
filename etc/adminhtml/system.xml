@@ -21,27 +21,37 @@
                 </field>
 
                 <field id="enable_image_above_title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
-                    <label>Enable Image Above Title</label>
+                    <label>Show Banner Above Title</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="enable_image_below_price" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="41" translate="label" type="select">
-                    <label>Enable Image Below Price</label>
+                    <label>Show Banner Below Price</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="enable_image_above_addtocart" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="42" translate="label" type="select">
-                    <label>Enable Image Above Add to Cart</label>
+                    <label>Show Banner Above Add to Cart</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="enable_image_below_description" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="43" translate="label" type="select">
-                    <label>Enable Image Below Description</label>
+                    <label>Show Banner Below Description</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="enable_badge_overlay" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="44" translate="label" type="select">
-                    <label>Enable Badge Overlay on Product Image</label>
+                    <label>Show Badge on Product Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="enable_banner_at_cart" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="45" translate="label" type="select">
+                    <label>Show Banner Below Cart Summary</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="enable_banner_at_checkout" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="46" translate="label" type="select">
+                    <label>Show Banner Below Checkout Summary</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>

@@ -1,6 +1,8 @@
 <?php if($block->canShow(true) && true == false):?>
-    <a href="javascript:void(0);" data-image="<?=  $block->getBannerUrl('promo_modal_content') ?>" class="creditea-modal-trigger creditea-promo-click">
-        <img src="<?= $block->getBannerUrl('checkout_below_summary') ?>" alt="Promo Image Under Checkout Summary" />
-    </a>
-    <script>require(['jquery', 'creditea-venobox-promo']);</script>
+    <?php if ($block->showBannerCheckout()): ?>
+        <a href="javascript:void(0);" data-image="<?=  $block->getBannerUrl('promo_modal_content') ?>" class="creditea-modal-trigger creditea-promo-click">
+            <img src="<?= $block->getBannerUrl('checkout_below_summary') ?>" alt="Promo Image Under Checkout Summary" />
+        </a>
+        <script>require(['jquery', 'creditea-venobox-promo']);</script>
+    <?php endif; ?>
 <?php endif; ?>
