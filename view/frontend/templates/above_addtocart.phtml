@@ -1,0 +1,8 @@
+<?php if($block->canShow()):?>
+    <?php if ($block->showImageAboveAddToCart()): ?>
+        <a href="javascript:void(0);" data-image="<?=  $block->getBannerUrl('promo_modal_content') ?>" class="creditea-modal-trigger creditea-promo-click">
+            <img src="<?= $block->getBannerUrl('product_above_add_to_cart') ?>" alt="Promo Image Above Add To Cart" />
+        </a>
+        <script>require(['jquery', 'creditea-venobox-promo']);</script>
+    <?php endif; ?>
+<?php endif; ?>

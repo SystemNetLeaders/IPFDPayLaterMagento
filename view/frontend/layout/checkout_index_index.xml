@@ -7,6 +7,21 @@
                     <item name="components" xsi:type="array">
                         <item name="checkout" xsi:type="array">
                             <item name="children" xsi:type="array">
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="creditea_banner" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Creditea_Magento2/js/view/checkout/summary</item>
+                                                    <item name="displayArea" xsi:type="string">after-summary</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="template" xsi:type="string">Creditea_Magento2/checkout/summary</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
                                 <item name="steps" xsi:type="array">
                                     <item name="children" xsi:type="array">
                                         <item name="billing-step" xsi:type="array">
@@ -37,5 +52,22 @@
                 </argument>
             </arguments>
         </referenceBlock>
+        
+        <referenceContainer name="checkout.sidebar.summary">
+            <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.checkout.sidebar.banner" template="Creditea_Magento2::checkout_post_summary.phtml" after="summary"/>
+        </referenceContainer>
+
+        <referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Text" name="creditea_js_promo_script">
+                <arguments>
+                    <argument name="text" xsi:type="string">
+                        <script type="text/javascript">
+                            require(['jquery', 'creditea-venobox-promo']);
+                        </script>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
     </body>
 </page>

@@ -1,0 +1,20 @@
+<style>
+    div.product.media{
+        position: relative;
+    }
+    .creditea-badge-overlay {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        max-width: 100px;
+        width: 100%;
+        z-index: 5;
+    }
+</style>
+<?php if($block->canShow()):?>
+    <?php if ($block->showBadgeOverlay()): ?>
+        <div class="creditea-badge-overlay">
+            <img src="<?= $block->getBannerUrl('product_badge') ?>" alt="Creditea Product Badge" />
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

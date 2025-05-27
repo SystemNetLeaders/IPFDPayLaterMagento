@@ -74,3 +74,5 @@ php bin/magento indexer:reindex
 php bin/magento cache:clean
 php bin/magento cache:flush
 ```
+
+According to PLM-3 (remote resources) it is mandatory to replace csp exceptions in etc/csp_whitelist.xml and URL_BANNER_HOST in Helper/Data.php

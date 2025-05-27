@@ -1,0 +1,9 @@
+<?php if($block->canShow()):?>
+    <?php if ($block->showImageBelowPrice()): ?>
+        <a href="javascript:void(0);" data-image="<?=  $block->getBannerUrl('promo_modal_content') ?>" class="creditea-modal-trigger creditea-promo-click">
+            <img src="<?= $block->getBannerUrl('product_below_price') ?>" alt="Promo Image Below Price" />
+        </a>
+        <script>require(['jquery', 'creditea-venobox-promo']);</script>
+    <?php endif; ?>
+<?php endif; ?>
+

@@ -23,7 +23,7 @@ class View extends AbstractProduct
         $this->helper = $helper;
     }
 
-    function canShow(){
+    function canShow($skipProductCheck = false){
         /* If payment is disable */
         if(!$this->helper->isEnable()){
             return false;
@@ -36,8 +36,10 @@ class View extends AbstractProduct
         }
         
         /* Init out catalog_product_view */
-        if(!$this->helper->getCurrentProduct()){
-            return false;
+        if($skipProductCheck == false){
+            if(!$this->helper->getCurrentProduct()){
+                return false;
+            }
         }
 
         return true;
@@ -100,6 +102,39 @@ class View extends AbstractProduct
             return true;
         }
         return false;
+    }
+
+    function getBannerUrl($placement = null){
+        return $this->helper->generateBannerUrl($placement);
+    }
+
+    public function showImageAboveTitle() // Works
+    {
+        return $this->helper->isEnableImageAboveTitle();
+    }
+    public function showImageBelowPrice() // Works
+    {
+        return $this->helper->isEnableImageBelowPrice();
+    }
+    public function showImageAboveAddToCart() // Works
+    {
+        return $this->helper->isEnableImageAboveAddToCart();
+    }
+    public function showImageBelowDescription()
+    {
+        return $this->helper->isEnableImageBelowDescription();
+    }
+    public function showBadgeOverlay()
+    {
+        return $this->helper->isEnableBadgeOverlay();
+    }
+    public function showBannerCheckout()
+    {
+        return $this->helper->isEnableBannerAtCheckout();
+    }
+    public function showBannerCart()
+    {
+        return $this->helper->isEnableBannerAtCart();
     }
 
 }

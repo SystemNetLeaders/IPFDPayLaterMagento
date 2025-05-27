@@ -14,6 +14,7 @@ class Data extends AbstractHelper
     const MIN_CALCULATE_PRICE = 200;
     const URL_API = 'https://ecommerce.creditea.com/app/api/merchants/transactions';
     const URL_BASE_POPUP = 'https://ecommerce.creditea.com/mx/apply/widget?amount=';
+    const URL_BANNER_HOST = 'https://ecommerce.creditea.com/mx/apply/widgets';
 
 	protected $storeManager;
     protected $registry;
@@ -66,6 +67,60 @@ class Data extends AbstractHelper
         $getToken = $this->getConfigValue('payment/creditea_magento2/api_key_production');
         return $this->enc->decrypt($getToken);
     }
+    public function generateBannerUrl($placement = null)
+    {
+        $placement = !is_null($placement) ? strtolower($placement) : null;
+        $placementMap = [
+            'product_above_title' => 'banner_above_title.png',
+            'product_below_price' => 'banner_below_price.png',
+            'product_above_add_to_cart' => 'banner_above_addtocart.png',
+            'product_below_description' => 'banner_below_description.png',
+            'product_badge' => 'product_badge.png',
+            'cart_below_summary' => 'banner_cart_below_summary.png',
+            'checkout_below_summary' => 'checkout_below_summary.png',
+            'promo_modal_content' => 'promo_modal_content.png',
+        ];
+        if(!is_null($placement) && isset($placementMap[$placement])){
+            return Data::URL_BANNER_HOST . "/" . $placementMap[$placement] . '?t=' . time();
+        }
+        return Data::URL_BANNER_HOST . '/default.png?t=' . time();
+    }
+
+    public function isEnableImageAboveTitle()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_above_title') ?? 0;
+    }
+
+    public function isEnableImageBelowPrice()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_below_price') ?? 0;
+    }
+
+    public function isEnableImageAboveAddToCart()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_above_addtocart') ?? 0;
+    }
+
+    public function isEnableImageBelowDescription()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_image_below_description') ?? 0;
+    }
+
+    public function isEnableBadgeOverlay()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_badge_overlay') ?? 0;
+    }
+
+    public function isEnableBannerAtCheckout()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_banner_at_checkout') ?? 0;
+    }
+    
+    public function isEnableBannerAtCart()
+    {
+        return $this->getConfigValue('payment/creditea_magento2/enable_banner_at_cart') ?? 0;
+    }
+
 
     public function getMinPrice()
     {
