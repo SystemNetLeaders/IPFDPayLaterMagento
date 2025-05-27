@@ -3,7 +3,7 @@
     <policies>
         <policy id="img-src">
             <values>
-                <value id="snleaders-pl" type="host">https://st67345.snleaders.pl</value>
+                <value id="creditea-com" type="host">https://ecommerce.creditea.com</value>
             </values>
         </policy>
     </policies>

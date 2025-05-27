@@ -32,7 +32,6 @@ define(['jquery'], function ($) {
                             position: relative;
                             background: url('${imageSrc}') no-repeat center center;
                             background-size: cover;
-                            padding: 20px;
                             max-width: 600px;
                             min-height: 400px;
                             width: 90%;
