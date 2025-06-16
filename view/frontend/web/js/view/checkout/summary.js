@@ -53,7 +53,6 @@ define([
             if(this.isBannerEnabled() == "1"){
                 return "display:block;";
             }else{
-                console.log('Banner is disabled');
                 return "display:none;";
             }
         }
@@ -102,8 +101,9 @@ define(['jquery'], function ($) {
                         ">
                             <button class="creditea-promo-close" style="
                                 position: absolute;
-                                top: 10px;
-                                right: 10px;
+                                top: 0px;
+                                right: 0px;
+                                padding-right: 10px;
                                 background: none;
                                 border: none;
                                 font-size: 20px;

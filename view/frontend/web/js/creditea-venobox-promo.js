@@ -39,8 +39,9 @@ define(['jquery'], function ($) {
                         ">
                             <button class="creditea-promo-close" style="
                                 position: absolute;
-                                top: 10px;
-                                right: 10px;
+                                top: 0px;
+                                right: 0px;
+                                padding-right: 10px;
                                 background: none;
                                 border: none;
                                 font-size: 20px;
