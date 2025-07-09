@@ -30,7 +30,7 @@ define(['jquery'], function ($) {
                     ">
                         <div class="creditea-promo-inner" style="
                             position: relative;
-                            background: url('${imageSrc}') no-repeat center center;
+                            
                             background-size: cover;
                             max-width: 600px;
                             min-height: 400px;
