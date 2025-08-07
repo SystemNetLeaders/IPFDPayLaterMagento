@@ -1,92 +1,105 @@
 define(['jquery'], function ($) {
     "use strict";
 
-    console.log('creditea-promo-venobox.js loaded');
+    function openCrediteaModal(imageSrc) {
+        $('#creditea-promo-modal').remove();
 
-    $.fn.extend({
-        crediteaPromoModal: function () {
-            this.on('click', function (e) {
-                e.preventDefault();
+        var $modal = $('<div>', {
+            id: 'creditea-promo-modal',
+            css: {
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                zIndex: 9999,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                opacity: 0,
+                transition: 'opacity 0.3s ease'
+            }
+        });
 
-                // Usuń istniejący modal
-                $('#creditea-promo-modal').remove();
+        var $inner = $('<div>', {
+            class: 'creditea-promo-inner',
+            css: {
+                position: 'relative',
+                backgroundSize: 'cover',
+                maxWidth: '600px',
+                minHeight: '400px',
+                width: '90%',
+                borderRadius: '8px'
+            }
+        });
 
-                // Pobierz dynamiczny src z atrybutu data-image
-                var imageSrc = $(this).data('image');
+        var $closeBtn = $('<button>', {
+            class: 'creditea-promo-close',
+            html: '&times;',
+            css: {
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                paddingRight: '10px',
+                background: 'none',
+                border: 'none',
+                fontSize: '20px',
+                cursor: 'pointer'
+            }
+        });
 
-                // Tworzymy modal
-                var $modal = $(`
-                    <div id="creditea-promo-modal" style="
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100vw;
-                        height: 100vh;
-                        background-color: rgba(0, 0, 0, 0.7);
-                        z-index: 9999;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ">
-                        <div class="creditea-promo-inner" style="
-                            position: relative;
-                            
-                            background-size: cover;
-                            max-width: 600px;
-                            min-height: 400px;
-                            width: 90%;
-                            border-radius: 8px;
-                        ">
-                            <button class="creditea-promo-close" style="
-                                position: absolute;
-                                top: 0px;
-                                right: 0px;
-                                padding-right: 10px;
-                                background: none;
-                                border: none;
-                                font-size: 20px;
-                                cursor: pointer;
-                            ">&times;</button>
-                            <img src="${imageSrc}" alt="Promo Image" style="
-                                max-width: 100%;
-                                max-height: 100%;
-                                border-radius: 8px;
-                            " />
-                        </div>
-                    </div>
-                `);
+        var $image = $('<img>', {
+            src: imageSrc,
+            alt: 'Promo Image',
+            css: {
+                maxWidth: '100%',
+                maxHeight: '100%',
+                borderRadius: '8px'
+            }
+        });
 
-                $('body').append($modal);
-
-                // Kliknięcie w tło zamyka modal
-                $modal.on('click', function () {
-                    $modal.remove();
-                });
-
-                // Kliknięcie wewnątrz (kontener z obrazem) NIE zamyka modalu
-                $modal.find('.creditea-promo-inner').on('click', function (e) {
-                    e.stopPropagation();
-                });
-
-                // Zamknięcie modalu przy kliknięciu przycisku X
-                $modal.find('.creditea-promo-close').on('click', function () {
-                    $modal.remove();
-                });
-
-                // Opcjonalnie: ESC też zamyka modal
-                $(document).on('keydown.crediteaPromo', function (e) {
-                    if (e.key === 'Escape') {
-                        $modal.remove();
-                        $(document).off('keydown.crediteaPromo');
-                    }
-                });
+        $inner.append($closeBtn).append($image);
+        $modal.append($inner);
+        $('body').append($modal);
+        $modal.animate({ opacity: 1 }, 300);
+        $modal.on('click', function () {
+            $modal.animate({ opacity: 0 }, 300, function () {
+                $modal.remove();
             });
+        });
 
-            return this;
+        $inner.on('click', function (e) {
+            e.stopPropagation();
+        });
+
+        $closeBtn.on('click', function () {
+            $modal.animate({ opacity: 0 }, 300, function () {
+                $modal.remove();
+            });
+        });
+
+        $(document).on('keydown.crediteaPromo', function (e) {
+            if (e.key === 'Escape') {
+                $modal.animate({ opacity: 0 }, 400, function () {
+                    $modal.remove();
+                });
+                $(document).off('keydown.crediteaPromo');
+            }
+        });
+    }
+
+    $(document).on('click', '.creditea-promo-click', function (e) {
+        e.preventDefault();
+        var imageSrc = $(this).data('image');
+        if (imageSrc) {
+            openCrediteaModal(imageSrc);
         }
     });
 
-    $(document).ready(function () {
-        $('.creditea-promo-click').crediteaPromoModal();
-    });
+    window.openCrediteaModal = openCrediteaModal;
+
+    return {
+        openCrediteaModal: openCrediteaModal
+    };
 });

@@ -57,17 +57,5 @@
             <block class="Creditea\Magento2\Block\Catalog\Product\View" name="creditea.checkout.sidebar.banner" template="Creditea_Magento2::checkout_post_summary.phtml" after="summary"/>
         </referenceContainer>
 
-        <referenceBlock name="head.additional">
-            <block class="Magento\Framework\View\Element\Text" name="creditea_js_promo_script">
-                <arguments>
-                    <argument name="text" xsi:type="string">
-                        <script type="text/javascript">
-                            require(['jquery', 'creditea-venobox-promo']);
-                        </script>
-                    </argument>
-                </arguments>
-            </block>
-        </referenceBlock>
-
     </body>
 </page>

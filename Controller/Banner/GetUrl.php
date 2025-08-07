@@ -33,6 +33,10 @@ class GetUrl extends Action
                     $position = 'checkout_below_summary';
                     $isEnabled = $this->helper->isEnableBannerAtCheckout();
                     break;
+                case 'promo_modal_content':
+                    $position = 'promo_modal_content';
+                    $isEnabled = $this->helper->isEnableBannerAtCheckout();
+                    break;
                 default:
                     $position = 'default';
                     $isEnabled = true;
