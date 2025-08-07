@@ -1,0 +1,11 @@
+<?php if($block->canShow()):?>
+    <?php if ($block->showImageAboveAddToCart()): ?>
+        <img src="<?= $block->getViewFileUrl('Creditea_Magento2::images/promo/CrediteaPay_AboveAddToCart.png') ?>" alt="Above Add to Cart" />
+    <?php endif; ?>
+
+    <div class="add-to-cart-buttons">
+        <button type="submit" title="<?= $block->escapeHtml(__('Add to Cart')) ?>" class="action primary tocart">
+            <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+        </button>
+    </div>
+<?php endif; ?>

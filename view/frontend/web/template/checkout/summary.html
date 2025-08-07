@@ -1,8 +1,13 @@
 <div class="creditea-checkout-banner">
-    <a href="#" data-bind="attr: { 'data-image': getBannerUrl('promo_modal_content'), 'style': isEnabled('promo_modal_content') }" class="creditea-modal-trigger creditea-promo-click">
-        <img data-bind="attr: { src: getBannerUrl('checkout_below_summary') }"  alt="Creditea Banner" class="creditea-banner-image" />
+    <a href="javascript:void(0);"
+       class="creditea-modal-trigger creditea-promo-click"
+       data-bind="
+           attr: {
+               'data-image': getBannerUrl('promo_modal_content'),
+               'style': isEnabled('promo_modal_content')
+           }">
+        <img data-bind="attr: { src: getBannerUrl('checkout_below_summary') }"
+             alt="Creditea Banner"
+             class="creditea-banner-image" />
     </a>
-    <script>
-        require(['jquery', 'creditea-venobox-promo']);
-    </script>
 </div>

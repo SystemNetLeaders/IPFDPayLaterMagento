@@ -1,0 +1,24 @@
+<?php if($block->canShow()):?>
+    <?php /** @var \Magento\Catalog\Block\Product\View\Gallery $block */ ?>
+    <?php if ($block->getImage()): ?>
+        <div class="product-image-photo">
+            <img src="<?= $block->getImage() ?>" alt="<?= $block->escapeHtml($block->getImageLabel()) ?>" />
+
+            <?php if ($block->showBadgeOverlay()): ?>
+                <div class="creditea-badge-overlay">
+                    <img src="<?= $block->getViewFileUrl('Creditea_Magento2::images/promo/CrediteaPay_BadgeOverlay.png') ?>" alt="Badge Overlay" />
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <style>
+            .product-image-photo { position: relative; }
+            .creditea-badge-overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 10;
+            }
+        </style>
+    <?php endif; ?>
+<?php endif; ?>

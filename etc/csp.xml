@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp.xsd">
+    <policies>
+        <policy id="img-src">
+            <values>
+                <value id="creditea-csp" type="host">https://ecommerce.creditea.com</value>
+            </values>
+        </policy>
+    </policies>
+</config>
