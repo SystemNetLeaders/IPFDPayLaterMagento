@@ -1,13 +1,5 @@
-<div class="creditea-checkout-banner">
-    <a href="javascript:void(0);"
-       class="creditea-modal-trigger creditea-promo-click"
-       data-bind="
-           attr: {
-               'data-image': getBannerUrl('promo_modal_content'),
-               'style': isEnabled('promo_modal_content')
-           }">
-        <img data-bind="attr: { src: getBannerUrl('checkout_below_summary') }"
-             alt="Creditea Banner"
-             class="creditea-banner-image" />
+<div class="creditea-checkout-banner" data-bind="visible: isEnabled('promo_modal_content')">
+    <a href="javascript:void(0);" class="creditea-modal-trigger creditea-promo-click" data-bind="attr: { 'data-image': getBannerUrl('promo_modal_content') }">
+        <img class="creditea-banner-image" data-bind="attr: { src: getBannerUrl('checkout_below_summary'), alt: 'Creditea Banner' }" />
     </a>
 </div>
