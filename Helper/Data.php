@@ -11,7 +11,7 @@ use Magento\Framework\Encryption\EncryptorInterface;
 class Data extends AbstractHelper
 {
     const QUINCENAS = 60;
-    const MIN_CALCULATE_PRICE = 200;
+    const MIN_CALCULATE_PRICE = 100;
     const URL_API = 'https://ecommerce.creditea.com/app/api/merchants/transactions';
     const URL_BASE_POPUP = 'https://ecommerce.creditea.com/mx/apply/widget?amount=';
     const URL_BANNER_HOST = 'https://ecommerce.creditea.com/mx/apply/widgets';
