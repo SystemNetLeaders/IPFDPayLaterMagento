@@ -116,7 +116,7 @@ class PaymentActions
             $response['status'] = 'order not belongsto Creditea';
             return $response;
         }
-        
+
         /* validate order's state */
         if($order->getState() != Order::STATE_NEW){ 
             $response['status'] = 'order not-hold';

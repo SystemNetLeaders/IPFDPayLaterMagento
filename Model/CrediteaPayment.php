@@ -99,24 +99,31 @@ class CrediteaPayment extends \Magento\Payment\Model\Method\AbstractMethod
 
             $store_tz = $this->helper->getConfigValue('general/locale/timezone');
             date_default_timezone_set($store_tz);
+            $grandTotal = $this->normalizeAmount($order->getGrandTotal());
+            $discountAmount = abs($this->normalizeAmount($order->getDiscountAmount()));
+            $discountedTransactionAmount = max(0, $grandTotal);
 
 			foreach ($order->getAllVisibleItems() as $item) {
+                $itemPrice = $this->normalizeAmount($item->getPrice());
+                $itemQuantity = $this->normalizeAmount($item->getQtyOrdered());
 				$line_items[] = [
 					'sku' => $item->getSku(),
 					'description' => $item->getTitle() ?? $item->getSku(),
-					'price' => $item->getPrice(),
-					'quantity' => $item->getQtyOrdered(),
-					'total' => strval($item->getPrice() * $item->getQtyOrdered()),
+					'price' => $itemPrice,
+					'quantity' => $itemQuantity,
+					'total' => $this->normalizeAmount($itemPrice * $itemQuantity),
 					'gtin' => 'ITEM BARCODE'
 				];
 			}
 
 			$jsonOrder = array(
 				'orderID' => strval($order->getIncrementId()),
-				'value' => (is_numeric($order->getGrandTotal())) ? $order->getGrandTotal() : 0,
+				'value' => $grandTotal,
+                'discountAmount' => $discountAmount,
+                'discountedTransactionAmount' => $discountedTransactionAmount,
 				'currency' => 'MXN',
 				'country' => 'México',
-                'line_items' => $line_items,
+				'line_items' => $line_items,
                 'city' => $billing->getCity() ?? '',
 				'state' => $billing->getRegion() ?? '',
 				'postcode' => $billing->getPostcode() ?? '00000',
@@ -161,6 +168,15 @@ class CrediteaPayment extends \Magento\Payment\Model\Method\AbstractMethod
         $payment->setSkipOrderProcessing(true);
 
         return $this;
+    }
+
+    private function normalizeAmount($amount): float
+    {
+        if (!is_numeric($amount)) {
+            return 0.0;
+        }
+
+        return round((float) $amount, 2);
     }
 
     public function isAvailable(\Magento\Quote\Api\Data\CartInterface $quote = null)
